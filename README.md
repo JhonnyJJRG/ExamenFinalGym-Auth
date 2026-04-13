@@ -1,5 +1,5 @@
 🔐 MS-Auth - Microservicio de Autenticación e Identidad
-Este microservicio es el punto de entrada de seguridad para el ecosistema GymMaster. Se encarga de la gestión centralizada de usuarios, el control de acceso basado en roles (RBAC) y la emisión de tokens de seguridad.
+Este microservicio es el punto de entrada de seguridad para el ecosistema GymMaster. Se encarga de la gestión centralizada de usuarios, el control de acceso basado en roles (RBAC) y la emisión de tokens de seguridad para proteger los recursos del gimnasio.
 
 📝 Descripción
 El MS-Auth implementa un sistema de identidad desacoplado que permite a los demás microservicios validar la autenticidad de las peticiones sin necesidad de consultar la base de datos de usuarios constantemente, utilizando el estándar JSON Web Token (JWT).
@@ -13,6 +13,16 @@ Base de Datos: SQL Server (Tablas: Users, Roles, UserRoles)
 
 Seguridad: Microsoft.AspNetCore.Authentication.JwtBearer
 
+📋 Prerrequisitos
+Antes de iniciar, asegúrese de tener instalado:
+
+.NET 8.0 SDK o superior.
+
+SQL Server Express o Developer Edition.
+
+
+Thunder Client o Postman para pruebas de endpoints.
+
 ⚙️ Configuración (appsettings.json)
 Para que el servicio funcione correctamente, asegúrese de configurar el nodo de seguridad y la cadena de conexión:
 {
@@ -25,6 +35,8 @@ Para que el servicio funcione correctamente, asegúrese de configurar el nodo de
     "Audience": "GymUsers"
   }
 }
+
+📦 Inicialización de la Base de DatosEste servicio requiere que la estructura de tablas esté presente. Ejecute el script SQL ubicado en la raíz del proyecto antes de levantar el servicio:Archivo: script-bdgym.sql.
 
 📍 Endpoints Principales
 Autenticación
